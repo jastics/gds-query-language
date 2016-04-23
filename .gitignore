@@ -10,3 +10,28 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+  GNU nano 2.0.6                              File: upwork/reporting-backend-etl/.gitignore                                                                  
+
+# Compiled source #
+*.class
+target/
+
+
+# Intellij files and folders #
+*.iml
+.idea/
+
+# Eclipse files and folders #
+.project
+.settings
+.classpath
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Logs #
+*.log
+logs/
