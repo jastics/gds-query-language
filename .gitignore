@@ -2,7 +2,6 @@
 # Compiled source #
 *.class
 target/
-.gradle/
 
 # Intellij files and folders #
 *.iml
