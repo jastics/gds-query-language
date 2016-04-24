@@ -3,7 +3,6 @@
 *.class
 target/
 .DS_Store
-!gradle/
 
 # Intellij files and folders #
 *.iml
@@ -19,7 +18,6 @@ target/
 *.war
 *.ear
 
-!gradle/wrapper/gradle-wrapper.jar
 
 # Logs #
 *.log
