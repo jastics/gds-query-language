@@ -6,14 +6,13 @@ import org.gds.query.column.SimpleColumn;
 import java.util.List;
 
 /**
- * @since 4/23/16
+ * Created by ivanursul on 4/25/16.
  */
-public class PostgresQuerySelection implements QuerySelection {
+public class DefaultQuerySelection implements QuerySelection {
 
-    private final String rawColumns;
 
-    public PostgresQuerySelection(String rawColumns) {
-        this.rawColumns = rawColumns;
+    public DefaultQuerySelection(String rawSelect) {
+
     }
 
     @Override

@@ -1,11 +1,9 @@
 package org.gds;
 
-import org.gds.query.clauses.orderby.PostgresQuerySort;
 import org.gds.query.clauses.orderby.EmptyQuerySort;
 import org.gds.query.clauses.orderby.QuerySort;
-import org.gds.query.clauses.select.PostgresQuerySelection;
+import org.gds.query.clauses.select.DefaultQuerySelection;
 import org.gds.query.clauses.select.QuerySelection;
-import org.gds.query.clauses.where.PostgresQueryFilter;
 import org.gds.query.clauses.where.EmptyQueryFilter;
 import org.gds.query.clauses.where.QueryFilter;
 
@@ -28,7 +26,7 @@ public class GdsRegexPostgresString {
      */
     public GdsRegexPostgresString(String gdsQuery) {
         this(
-                Pattern.compile("(select-?.*?)\\s+(.*?){0,1}(?:\\s+(where-?.*?)(.*)){0,1}\\s(order by-?.*?){0,1}(.*)").matcher(gdsQuery)
+                Pattern.compile("^select\\s(((?!(\\sorder\\sby\\s|\\swhere\\s)).)*)(\\swhere\\s(((?!order by).)*))?(\\sorder by\\s(.*))?$").matcher(gdsQuery)
         );
     }
 
@@ -36,19 +34,20 @@ public class GdsRegexPostgresString {
         this.matcher = matcher;
 
         if (!matcher.matches()) {
+            // todo: replace with good exception
             throw new RuntimeException("Invalid query");
         }
     }
 
     public QuerySort orderBy() {
         return matcher.group(5) != null ?
-                new PostgresQuerySort(matcher.group(6)) :
+                null :
                 new EmptyQuerySort();
     }
 
     public QueryFilter where() {
         return matcher.group(3) != null ?
-                new PostgresQueryFilter(matcher.group(4)) :
+                null :
                 new EmptyQueryFilter();
     }
 
@@ -58,6 +57,6 @@ public class GdsRegexPostgresString {
             throw new RuntimeException("Select should be present in query");
         }
 
-        return new PostgresQuerySelection(matcher.group(2));
+        return new DefaultQuerySelection(matcher.group(1));
     }
 }
