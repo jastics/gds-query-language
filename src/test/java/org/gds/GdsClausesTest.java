@@ -65,4 +65,21 @@ public class GdsClausesTest {
         // Then
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testClausesWithInvalidQuery1() throws Exception {
+        // Given
+        String gdsQuery = "1";
+        List<String> expected = Arrays.asList("col1,col2", "col1=1", "col1,col3");
+
+        // When
+        exception.expect(RuntimeException.class);
+        exception.expectMessage("Invalid query: 1");
+
+        GdsClauses unit = new GdsClauses(gdsQuery);
+        List<String> actual = unit.clauses();
+
+        // Then
+        assertEquals(expected, actual);
+    }
 }
