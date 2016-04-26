@@ -4,6 +4,7 @@
 target/
 .DS_Store
 build/
+.gradle/
 
 # Intellij files and folders #
 *.iml
