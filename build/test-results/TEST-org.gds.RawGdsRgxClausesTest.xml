@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.gds.RawGdsRgxClausesTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2016-04-26T17:20:54" hostname="Ivans-MacBook-Pro.local" time="0.003">
-  <properties/>
-  <testcase name="testClauses" classname="org.gds.RawGdsRgxClausesTest" time="0.002"/>
-  <testcase name="testClausesV1" classname="org.gds.RawGdsRgxClausesTest" time="0.001"/>
-  <testcase name="testClausesWithOrderBy" classname="org.gds.RawGdsRgxClausesTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
