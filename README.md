@@ -4,6 +4,6 @@
 TODO
 * Add code climat https://codeclimate.com/github
 * Add coverage - https://coveralls.io/github
-* Dependencies out of date  www.versioneye.com
+* Dependencies out of date -  www.versioneye.com
 
 Powered by [Jastics](www.jastics.com)
