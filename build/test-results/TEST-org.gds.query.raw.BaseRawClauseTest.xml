@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.gds.query.raw.BaseRawClauseTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2016-04-26T17:20:54" hostname="Ivans-MacBook-Pro.local" time="0.0">
+  <properties/>
+  <testcase name="testEmpty" classname="org.gds.query.raw.BaseRawClauseTest" time="0.0"/>
+  <testcase name="testEmptyWithContent" classname="org.gds.query.raw.BaseRawClauseTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,7 +1,5 @@
-package org.gds;
+package org.gds.query.raw;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,7 +8,7 @@ import java.util.regex.Pattern;
  * @since 4/23/16
  * @author ivanursul
  */
-public class GdsClauses {
+public class RawGdsRgxClauses {
 
     private final String query;
     private final Matcher matcher;
@@ -20,14 +18,14 @@ public class GdsClauses {
      * the default constructor is used.
      * @param gdsQuery Google Data Source query.
      */
-    public GdsClauses(String gdsQuery) {
+    public RawGdsRgxClauses(String gdsQuery) {
         this(
                 gdsQuery,
                 Pattern.compile("^select\\s(((?!(\\sorder\\sby\\s|\\swhere\\s)).)*)(\\swhere\\s(((?!order by).)*))?(\\sorder by\\s(.*))?$").matcher(gdsQuery)
         );
     }
 
-    public GdsClauses(String gdsQuery, Matcher matcher) {
+    public RawGdsRgxClauses(String gdsQuery, Matcher matcher) {
         this.query = gdsQuery;
         this.matcher = matcher;
 
@@ -37,7 +35,15 @@ public class GdsClauses {
         }
     }
 
-    public List<String> clauses() {
-        return Arrays.asList(matcher.group(1), matcher.group(5), matcher.group(8));
+    public RawClause select() {
+        return new BaseRawClause(matcher.group(1));
+    }
+
+    public RawClause where() {
+        return new BaseRawClause(matcher.group(5));
+    }
+
+    public RawClause orderBy() {
+        return new BaseRawClause(matcher.group(8));
     }
 }
